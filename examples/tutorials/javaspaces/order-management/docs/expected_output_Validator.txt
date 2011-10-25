@@ -1,0 +1,65 @@
+		.
+		.
+		.
+Seeking new orders in the space...
+New order number 51 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 51 new orders: 26 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 52 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 52 new orders: 27 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 53 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 53 new orders: 28 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 54 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 54 new orders: 29 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 55 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 55 new orders: 30 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 56 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 56 new orders: 31 orders approved and 25 orders rejected.
+
+Seeking new orders in the space...
+New order number 57 found from client: 14cd55bb:113206472a0:-8000
+Order rejected.
+Validator examined 57 new orders: 31 orders approved and 26 orders rejected.
+
+Seeking new orders in the space...
+New order number 58 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 58 new orders: 32 orders approved and 26 orders rejected.
+
+Seeking new orders in the space...
+New order number 59 found from client: 14cd55bb:113206472a0:-8000
+Order rejected.
+Validator examined 59 new orders: 32 orders approved and 27 orders rejected.
+
+Seeking new orders in the space...
+New order number 60 found from client: 14cd55bb:113206472a0:-8000
+Order rejected.
+Validator examined 60 new orders: 32 orders approved and 28 orders rejected.
+
+Seeking new orders in the space...
+New order number 61 found from client: 14cd55bb:113206472a0:-8000
+Order rejected.
+Validator examined 61 new orders: 32 orders approved and 29 orders rejected.
+
+Seeking new orders in the space...
+New order number 62 found from client: 14cd55bb:113206472a0:-8000
+Order approved.
+Validator examined 62 new orders: 33 orders approved and 29 orders rejected.
+		.
+		.
+		.

@@ -1,0 +1,70 @@
+		.
+		.
+		.
+Seeking approved orders...
+Approved order number 24 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 10 orders.
+
+Seeking approved orders...
+Approved order number 25 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 11 orders.
+
+Seeking approved orders...
+Approved order number 26 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 12 orders.
+
+Seeking approved orders...
+Approved order number 27 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 13 orders.
+
+Seeking approved orders...
+Approved order number 28 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 14 orders.
+
+Seeking approved orders...
+Approved order number 29 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 15 orders.
+
+Seeking approved orders...
+Approved order number 31 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 16 orders.
+
+Seeking approved orders...
+Approved order number 32 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 17 orders.
+
+Seeking approved orders...
+Approved order number 34 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 18 orders.
+
+Seeking approved orders...
+Approved order number 37 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 19 orders.
+
+Seeking approved orders...
+Approved order number 38 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 20 orders.
+
+Seeking approved orders...
+Approved order number 39 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 21 orders.
+
+Seeking approved orders...
+Approved order number 40 found from client: 14cd55bb:113206472a0:-8000
+Order processed.
+Processed 22 orders.
+		.
+		.
+		.

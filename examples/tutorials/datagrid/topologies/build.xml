@@ -1,0 +1,72 @@
+<project name="Topologies" default="compile" basedir=".">
+
+	<property file="${basedir}/build.properties" />
+	
+	<!-- set global properties for this build -->
+	<condition property="gshome.dir" value="../../../../">
+	    <not>
+	        <isset property="gshome.dir"/>
+	    </not>
+	</condition>
+	
+	<property name="src"			    value="src"					/>
+	<property name="classes"		    value="classes"					/>
+	<property name="lookupgroups"		value="Topologies"/>
+	<property name="PROTOCOL"		    value="jini" />
+  
+	<path id="all-libs">
+    	<fileset dir="${gshome.dir}/lib">
+            <include name="**/*.jar"/>
+            <exclude name="**/mule-os.jar" />
+        </fileset>
+    </path>	
+	
+  <!-- The project targets -->
+  <target name="prepare">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the classes directory structure used by compile -->
+    <mkdir dir="${classes}" />
+  </target>
+
+  <target name="compile" depends="prepare">
+    <!-- Compile the java code from ${src} into ${classes} -->
+    <javac 
+	     srcdir="${src}" 
+	     destdir="${classes}" 
+	     debug="on" 
+	     source="1.6"
+       target="1.6" >
+    	<classpath refid="all-libs"/>
+    </javac>
+  </target>
+	
+	<target name="run_DataLoader">
+		<echo message="${classpath};${classes}"/>
+			<java classname="com.gigaspaces.examples.tutorials.topologies.DataLoader" classpath="${classpath};${classes}" fork="yes"  >
+			  	<arg line="${PROTOCOL}://*/*/myDataGrid?groups=${lookupgroups}" />
+			</java>
+	</target>
+
+	<target name="run_SimpleReader">
+		<echo message="${classpath};${classes}"/>
+			<java classname="com.gigaspaces.examples.tutorials.topologies.SimpleReader" classpath="${classpath};${classes}" fork="yes"  >
+				<arg line="${PROTOCOL}://*/*/myDataGrid?groups=${lookupgroups}" />
+			</java>
+	</target>
+	
+	<target name="run_SimpleReader(LocalCache)">
+		<echo message="${classpath};${classes}"/>
+			<java classname="com.gigaspaces.examples.tutorials.topologies.SimpleReader" classpath="${classpath};${classes}" fork="yes"  >
+				<arg line="${PROTOCOL}://*/*/myDataGrid?useLocalCache&amp;groups=${lookupgroups}" />
+			</java>
+	</target>
+				
+	<target name="run_NotifiedReader">
+		<echo message="${classpath};${classes}"/>
+			<java classname="com.gigaspaces.examples.tutorials.topologies.NotifiedReader" classpath="${classpath};${classes}" fork="yes"  >
+				<arg line="${PROTOCOL}://*/*/myDataGrid?groups=${lookupgroups}" />
+			</java>
+	</target>
+
+</project>
