@@ -87,7 +87,7 @@ public class Client
 				// Take processed orders and rejected orders from the space 
 				// --------------------------------------------------------
 				// Try to take all the processed orders from the space.
-				Entry[] processedOrders = space.takeMultiple(templateProcessedOrder, null, Integer.MAX_VALUE);
+				Object[] processedOrders = space.takeMultiple(templateProcessedOrder, null, Integer.MAX_VALUE);
 				if (processedOrders != null) 
 				{
 					countProcessedOrders = countProcessedOrders + processedOrders.length; //	Update counter.
@@ -98,7 +98,7 @@ public class Client
 					System.out.println("0 processed orders found this round.");
 				}
 				// Try to take all the rejected orders from the space.
-				Entry[] rejectedOrders = space.takeMultiple(templateRejectedOrder, null, Integer.MAX_VALUE);
+				Object[] rejectedOrders = space.takeMultiple(templateRejectedOrder, null, Integer.MAX_VALUE);
 				if (rejectedOrders != null) 
 				{
 					countRejectedOrders = countRejectedOrders + rejectedOrders.length; //	Update Counter.
