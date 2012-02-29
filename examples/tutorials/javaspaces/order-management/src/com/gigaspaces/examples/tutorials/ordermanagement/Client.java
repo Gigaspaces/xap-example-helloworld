@@ -9,11 +9,11 @@
 
 package com.gigaspaces.examples.tutorials.ordermanagement;
 
-import com.j_spaces.core.IJSpace;					
-import com.j_spaces.core.client.FinderException; 	
-import com.j_spaces.core.client.SpaceFinder;		
-import net.jini.core.entry.Entry; 					
-import java.rmi.server.UID;							
+import java.rmi.server.UID;
+
+import com.j_spaces.core.IJSpace;
+import com.j_spaces.core.client.FinderException;
+import com.j_spaces.core.client.SpaceFinder;
 
 /**
  * Title:        	GigaSpaces Order Management Example - Client Application.<p>
