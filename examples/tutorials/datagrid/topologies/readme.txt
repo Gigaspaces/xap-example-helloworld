@@ -15,7 +15,7 @@ This example also shows the usage of client local cache and local view.
 ==========
 
 This example is described in details in the following wiki tutorial page:
-http://www.gigaspaces.com/wiki/display/XAP8/EDG+-+Basic+Topologies+Tutorial
+http://www.gigaspaces.com/wiki/display/XAP9/EDG+-+Basic+Topologies+Tutorial
 
 
 ---------------------------------------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Execute bin\compile.bat(.sh) to compile the demo .
 
 Deploy the clusters based on the topologies you want to use,
 use the deployment instructions with screenshots and tutorial refer to "Deploying the Data Grid" part in
-http://www.gigaspaces.com/wiki/display/XAP8/EDG+-+Basic+Topologies+Tutorial
+http://www.gigaspaces.com/wiki/display/XAP9/EDG+-+Basic+Topologies+Tutorial
 
 use the deployment instructions, name both deployment and space "myDataGrid".
 
