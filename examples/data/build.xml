@@ -15,6 +15,7 @@
     <property name="common.dir" location="${basedir}/common"/>
     <property name="feeder.dir" location="${basedir}/feeder"/>
     <property name="processor.dir" location="${basedir}/processor"/>
+    <property name="deploy.dir" location="${basedir}/deploy"/>
 
     <property name="common-src" value="${common.dir}/src"/>
     <property name="common-classes" value="${common.dir}/classes"/>
@@ -35,6 +36,9 @@
 	<property name="processor-dist" value="${processor.dir}/dist"/>
 	<property name="processor-jar" value="${processor-dist}/processor.jar"/>
 
+  <property name="deploy-src" value="${deploy.dir}/src"/>
+    <property name="deploy-classes" value="${deploy.dir}/classes"/>
+  
     <path id="all-libs">
     	<fileset dir="${gshome.dir}/lib">
             <include name="**/*.jar"/>
@@ -87,32 +91,29 @@
     	<jar basedir="${feeder-pu}" jarfile="${feeder-jar}" />
     </target>
 	
-	<target name="deploy" depends="dist">
-		<antcall target="deploy-processor" />
-		<antcall target="deploy-feeder" />
-	</target>
-
-    <target name="deploy-processor" depends="dist">
-        <deploy name="${processor-jar}"/>
-    </target>
-
-    <target name="deploy-feeder" depends="dist">
-        <deploy name="${feeder-jar}"/>
-    </target>
-	
-	<target name="undeploy">
-		<antcall target="undeploy-feeder" />
-		<antcall target="undeploy-processor" />
+	<target name="prepare-deploy">
+    <build src="${deploy-src}" classes="${deploy-classes}" additional-classpath=""/>
 	</target>
 	
-	<target name="undeploy-processor" >
-		<undeploy name="${processor-name}"/>
+	<target name="deploy" depends="dist,prepare-deploy">
+      
+      <java classname="org.openspaces.example.data.deploy.DeployDataApplication" fork="false">
+          <arg value="${feeder-jar}"/>
+          <classpath>
+           <path refid="all-libs"/>
+           <pathelement path="${deploy-classes}"/>
+         </classpath>
+      </java>
 	</target>
 	
-	<target name="undeploy-feeder">
-		<undeploy name="${feeder-name}"/>
+	<target name="undeploy" depends="prepare-deploy">
+      <java classname="org.openspaces.example.data.deploy.UndeployDataApplication" fork="false">
+          <classpath>
+           <path refid="all-libs"/>
+           <pathelement path="${deploy-classes}"/>
+         </classpath>
+      </java>
 	</target>
-	
 
     <macrodef name="build">
         <attribute name="src"/>
@@ -141,21 +142,4 @@
         </sequential>
     </macrodef>
 
-    <macrodef name="deploy">
-        <attribute name="name"/>
-        <sequential>
-            <java classname="org.openspaces.pu.container.servicegrid.deploy.Deploy" fork="false">
-                <arg value="@{name}"/>
-            </java>
-        </sequential>
-    </macrodef>
-	
-	<macrodef name="undeploy">
-	        <attribute name="name"/>
-	        <sequential>
-	            <java classname="org.openspaces.pu.container.servicegrid.deploy.Undeploy" fork="false">
-	                <arg value="@{name}"/>
-	            </java>
-	        </sequential>
-	</macrodef>
 </project>
