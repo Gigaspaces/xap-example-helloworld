@@ -10,9 +10,6 @@ import org.openspaces.admin.application.Application;
 import org.openspaces.admin.application.ApplicationDeployment;
 import org.openspaces.admin.gsm.GridServiceManager;
 import org.openspaces.admin.pu.ProcessingUnit;
-import org.openspaces.admin.pu.ProcessingUnitDeployment;
-import org.openspaces.admin.pu.dependency.ProcessingUnitDeploymentDependenciesConfigurer;
-import org.openspaces.admin.space.SpaceDeployment;
 
 
 public class DeployDataApplication {
@@ -22,35 +19,20 @@ public class DeployDataApplication {
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		System.out.println("Looking for Manager...");
+		final GridServiceManager gsm = waitForGridServiceManager();
+		File applicationFolder = getApplicationFolder(args);
 		
-		final File feederArchive = getFeederArchiveFile(args);
-		
-		final GridServiceManager gsm = getGridServiceManager();
-		
-		Application dataApp = gsm.deploy(
-		  
-				new ApplicationDeployment("data-app")
-
-			  .addProcessingUnitDeployment(
-			    new ProcessingUnitDeployment(feederArchive)
-			    .name("feeder")
-
-//			    .addDependency("space"))
-			    
-			    .addDependencies(
-			    	new ProcessingUnitDeploymentDependenciesConfigurer()
-                	.dependsOnMinimumNumberOfDeployedInstancesPerPartition("space",1)
-                	.create()))
-	
-			  .addProcessingUnitDeployment(
-			    new SpaceDeployment("space").partitioned(1, 1).maxInstancesPerVM(1))
-		);
-
-		ProcessingUnit feeder = dataApp.getProcessingUnits().getProcessingUnit("feeder");
-		feeder.waitFor(1);
+		System.out.println("Deploying " + applicationFolder);
+		ApplicationDeployment deployment = new ApplicationDeployment(applicationFolder);
+		Application dataApp = gsm.deploy(deployment);
+		for (ProcessingUnit pu : dataApp.getProcessingUnits()) {
+			pu.waitFor(pu.getTotalNumberOfInstances());
+		}
 	}
 
-	private static GridServiceManager getGridServiceManager() {
+	private static GridServiceManager waitForGridServiceManager() {
+		
 		final Admin admin = createAdmin();
 		final GridServiceManager gsm = admin.getGridServiceManagers().waitForAtLeastOne(1,TimeUnit.MINUTES);
 		if (gsm == null) {
@@ -64,16 +46,16 @@ public class DeployDataApplication {
 		return admin;
 	}
 
-	private static File getFeederArchiveFile(String[] args)
+	private static File getApplicationFolder(String[] args)
 			throws FileNotFoundException {
 		if (args.length != 1) {
-			throw new IllegalArgumentException("Usage: java DeployDataApplication.class feeder.jar");
+			throw new IllegalArgumentException("Usage: java DeployDataApplication.class [data-application-folder]");
 		}
-		final File feederArchive = new File(args[0]);
-		if (!feederArchive.exists()) {
-			throw new FileNotFoundException("File Not Found: " + feederArchive.getAbsolutePath());
+		final File appFolder = new File(args[0]);
+		if (!appFolder.exists()) {
+			throw new FileNotFoundException("File Not Found: " + appFolder.getAbsolutePath());
 		}
-		return feederArchive;
+		return appFolder;
 	}
 
 }

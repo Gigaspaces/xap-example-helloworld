@@ -21,7 +21,7 @@
     <property name="common-classes" value="${common.dir}/classes"/>
     <property name="common-dist" value="${common.dir}/dist"/>
     <property name="common-jar" value="${common-dist}/data-common.jar"/>
-
+    
 	<property name="feeder-name" value = "feeder" />
     <property name="feeder-src" value="${feeder.dir}/src"/>
     <property name="feeder-pu" value="${feeder.dir}/pu/data-feeder"/>
@@ -38,6 +38,8 @@
 
   <property name="deploy-src" value="${deploy.dir}/src"/>
     <property name="deploy-classes" value="${deploy.dir}/classes"/>
+  
+  <property name="dist.dir" value="${basedir}/dist"/>
   
     <path id="all-libs">
     	<fileset dir="${gshome.dir}/lib">
@@ -89,6 +91,8 @@
     	<mkdir dir="${feeder-dist}"/>
         <copy todir="${feeder-lib}" file="${common-jar}"/>
     	<jar basedir="${feeder-pu}" jarfile="${feeder-jar}" />
+    	<copy file="${feeder-jar}" todir="${dist.dir}"/>
+    	<copy file="${deploy.dir}/src/org/openspaces/example/data/deploy/application.xml" todir="${dist.dir}" />
     </target>
 	
 	<target name="prepare-deploy">
@@ -98,7 +102,7 @@
 	<target name="deploy" depends="dist,prepare-deploy">
       
       <java classname="org.openspaces.example.data.deploy.DeployDataApplication" fork="false">
-          <arg value="${feeder-jar}"/>
+          <arg value="${dist.dir}"/>
           <classpath>
            <path refid="all-libs"/>
            <pathelement path="${deploy-classes}"/>
