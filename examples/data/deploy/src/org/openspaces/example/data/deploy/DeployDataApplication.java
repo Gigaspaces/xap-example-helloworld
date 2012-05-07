@@ -8,6 +8,7 @@ import org.openspaces.admin.Admin;
 import org.openspaces.admin.AdminFactory;
 import org.openspaces.admin.application.Application;
 import org.openspaces.admin.application.ApplicationDeployment;
+import org.openspaces.admin.application.ApplicationFileDeployment;
 import org.openspaces.admin.gsm.GridServiceManager;
 import org.openspaces.admin.pu.ProcessingUnit;
 
@@ -24,7 +25,7 @@ public class DeployDataApplication {
 		File applicationFolder = getApplicationFolder(args);
 		
 		System.out.println("Deploying " + applicationFolder);
-		ApplicationDeployment deployment = new ApplicationDeployment(applicationFolder);
+		ApplicationDeployment deployment = new ApplicationFileDeployment(applicationFolder);
 		Application dataApp = gsm.deploy(deployment);
 		for (ProcessingUnit pu : dataApp.getProcessingUnits()) {
 			pu.waitFor(pu.getTotalNumberOfInstances());
