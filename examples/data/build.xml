@@ -91,6 +91,7 @@
     	<mkdir dir="${feeder-dist}"/>
         <copy todir="${feeder-lib}" file="${common-jar}"/>
     	<jar basedir="${feeder-pu}" jarfile="${feeder-jar}" />
+    	<copy file="${processor-jar}" todir="${dist.dir}"/>
     	<copy file="${feeder-jar}" todir="${dist.dir}"/>
     	<copy file="${deploy.dir}/src/org/openspaces/example/data/deploy/application.xml" todir="${dist.dir}" />
     </target>
