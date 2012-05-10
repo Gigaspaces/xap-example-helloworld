@@ -113,6 +113,17 @@
       </java>
 	</target>
 	
+	<target name="deploy-dir" depends="dist,prepare-deploy">
+      
+      <java classname="org.openspaces.example.data.deploy.DeployDataApplication" fork="false">
+          <arg value="${dist.dir}"/>
+          <classpath>
+           <path refid="all-libs"/>
+           <pathelement path="${deploy-classes}"/>
+         </classpath>
+      </java>
+	</target>
+	
 	<target name="undeploy" depends="prepare-deploy">
       <java classname="org.openspaces.example.data.deploy.UndeployDataApplication" fork="false">
           <classpath>
