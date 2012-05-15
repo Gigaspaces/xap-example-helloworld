@@ -71,6 +71,8 @@
 	    	<delete dir="${feeder-dist}"/>
 	        <delete dir="${processor-pu}/org"/>
 	    	<delete dir="${processor-dist}"/>
+			<delete dir="${dist.dir}"/>
+			<delete file="${dist.zip}"/>
 	    </target>
 
     <target name="build">
