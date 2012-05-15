@@ -86,15 +86,15 @@
         <!-- Copy over the common jar file to the processor and feeder libs -->
         <mkdir dir="${processor-lib}"/>
     	<mkdir dir="${processor-dist}"/>
-        <copy todir="${processor-lib}" file="${common-jar}"/>
+        <copy todir="${processor-lib}" file="${common-jar}" verbose="true"/>
     	<jar basedir="${processor-pu}" jarfile="${processor-jar}"/>
         <mkdir dir="${feeder-lib}"/>
     	<mkdir dir="${feeder-dist}"/>
-        <copy todir="${feeder-lib}" file="${common-jar}"/>
+        <copy todir="${feeder-lib}" file="${common-jar}" verbose="true"/>
     	<jar basedir="${feeder-pu}" jarfile="${feeder-jar}" />
-    	<copy file="${processor-jar}" todir="${dist.dir}"/>
-    	<copy file="${feeder-jar}" todir="${dist.dir}"/>
-    	<copy file="${deploy.dir}/src/org/openspaces/example/data/deploy/application.xml" todir="${dist.dir}" />
+    	<copy file="${processor-jar}" todir="${dist.dir}" verbose="true"/>
+    	<copy file="${feeder-jar}" todir="${dist.dir}" verbose="true"/>
+    	<copy file="${deploy.dir}/src/org/openspaces/example/data/deploy/application.xml" todir="${dist.dir}" verbose="true"/>
     	<zip destfile="${dist.zip}" basedir="${dist.dir}"/>
     </target>
 	
@@ -147,7 +147,7 @@
                 <classpath location="@{additional-classpath}"/>
             </javac>
 
-            <copy todir="@{classes}" preservelastmodified="true">
+            <copy todir="@{classes}" preservelastmodified="true" verbose="true">
                 <fileset dir="@{src}">
                     <include name="**/*.properties"/>
                     <include name="**/*.handlers"/>
