@@ -8,8 +8,12 @@ import org.openspaces.admin.Admin;
 import org.openspaces.admin.AdminFactory;
 import org.openspaces.admin.application.Application;
 import org.openspaces.admin.application.ApplicationFileDeployment;
+import org.openspaces.admin.application.config.ApplicationConfig;
 import org.openspaces.admin.gsm.GridServiceManager;
 import org.openspaces.admin.pu.ProcessingUnit;
+import org.openspaces.admin.pu.config.ProcessingUnitConfig;
+import org.openspaces.admin.pu.config.UserDetailsConfig;
+import org.openspaces.admin.pu.topology.ProcessingUnitConfigHolder;
 
 
 public class DeployDataApplication {
@@ -18,6 +22,10 @@ public class DeployDataApplication {
 	 * Deploys the data application example 
 	 */
 	public static void main(String[] args) throws FileNotFoundException {
+
+		if (args.length == 0) {
+			throw new IllegalArgumentException("Usage: java DeployDataApplication.class dist-folder-or-zip [username] [password]");
+		}
 		
 		System.out.println("Looking for Manager...");
 		final GridServiceManager gsm = waitForGridServiceManager();
@@ -25,9 +33,19 @@ public class DeployDataApplication {
 		
 		System.out.println("Deploying " + applicationFolder);
 		
+		ApplicationConfig applicationConfig = new ApplicationFileDeployment(applicationFolder).create();
+		if (args.length == 3) {
+			for (ProcessingUnitConfigHolder puConfig: applicationConfig.getProcessingUnits()) {
+				puConfig.setSecured(true);
+				UserDetailsConfig userDetails = new UserDetailsConfig();
+				userDetails.setUsername(args[1]);
+				userDetails.setPassword(args[2]);
+				puConfig.setUserDetails(userDetails);
+			}
+		}
+		
 		Application dataApp = gsm.deploy(
-				new ApplicationFileDeployment(applicationFolder)
-				.create()
+				applicationConfig
 		);
 		
 		for (ProcessingUnit pu : dataApp.getProcessingUnits()) {
@@ -52,9 +70,6 @@ public class DeployDataApplication {
 
 	private static File getApplicationFolder(String[] args)
 			throws FileNotFoundException {
-		if (args.length != 1) {
-			throw new IllegalArgumentException("Usage: java DeployDataApplication.class [data-application-folder]");
-		}
 		final File appFolder = new File(args[0]);
 		if (!appFolder.exists()) {
 			throw new FileNotFoundException("File Not Found: " + appFolder.getAbsolutePath());
