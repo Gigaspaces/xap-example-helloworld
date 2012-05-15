@@ -11,9 +11,6 @@ import org.openspaces.admin.application.ApplicationFileDeployment;
 import org.openspaces.admin.application.config.ApplicationConfig;
 import org.openspaces.admin.gsm.GridServiceManager;
 import org.openspaces.admin.pu.ProcessingUnit;
-import org.openspaces.admin.pu.config.ProcessingUnitConfig;
-import org.openspaces.admin.pu.config.UserDetailsConfig;
-import org.openspaces.admin.pu.topology.ProcessingUnitConfigHolder;
 
 
 public class DeployDataApplication {
@@ -24,7 +21,7 @@ public class DeployDataApplication {
 	public static void main(String[] args) throws FileNotFoundException {
 
 		if (args.length == 0) {
-			throw new IllegalArgumentException("Usage: java DeployDataApplication.class dist-folder-or-zip [username] [password]");
+			throw new IllegalArgumentException("Usage: java DeployDataApplication.class dist-folder-or-zip");
 		}
 		
 		System.out.println("Looking for Manager...");
@@ -34,19 +31,8 @@ public class DeployDataApplication {
 		System.out.println("Deploying " + applicationFolder);
 		
 		ApplicationConfig applicationConfig = new ApplicationFileDeployment(applicationFolder).create();
-		if (args.length == 3) {
-			for (ProcessingUnitConfigHolder puConfig: applicationConfig.getProcessingUnits()) {
-				puConfig.setSecured(true);
-				UserDetailsConfig userDetails = new UserDetailsConfig();
-				userDetails.setUsername(args[1]);
-				userDetails.setPassword(args[2]);
-				puConfig.setUserDetails(userDetails);
-			}
-		}
 		
-		Application dataApp = gsm.deploy(
-				applicationConfig
-		);
+		Application dataApp = gsm.deploy(applicationConfig);
 		
 		for (ProcessingUnit pu : dataApp.getProcessingUnits()) {
 			pu.waitFor(pu.getTotalNumberOfInstances());
