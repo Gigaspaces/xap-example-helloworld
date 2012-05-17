@@ -3,7 +3,7 @@
 
 # Setting environment (calls <GigaSpace Home Dir>\bin\setEnv.bat to set GS_JARS,JAVACCMD)
 # setExampleEnv scripts also set JARS variable to include the product jars + openspaces jars.
-. setExampleEnv.sh
+. ./setExampleEnv.sh
 
 echo Setting environment variables
 echo -----------------------------
