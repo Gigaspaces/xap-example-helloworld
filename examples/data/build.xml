@@ -106,7 +106,11 @@
 	
 	<target name="deploy" depends="dist,prepare-deploy">
       
-      <java classname="org.openspaces.example.data.deploy.DeployDataApplication" fork="false">
+      <java classname="org.openspaces.admin.application.deploy.ApplicationDeployCommand" fork="false">
+          <arg value="--timeout"/>
+          <arg value="30000"/>
+          <arg value="--deploy-timeout"/>
+          <arg value="60000"/>
           <arg value="${dist.zip}"/>
           <classpath>
            <path refid="all-libs"/>
@@ -117,11 +121,10 @@
 	
 	<target name="deploy-dir" depends="dist,prepare-deploy">
       
-      <java classname="org.openspaces.example.data.deploy.DeployDataApplication" fork="false">
+      <java classname="org.openspaces.admin.application.DeployDataApplication" fork="false">
           <arg value="${dist.dir}"/>
           <classpath>
            <path refid="all-libs"/>
-           <pathelement path="${deploy-classes}"/>
          </classpath>
       </java>
 	</target>
