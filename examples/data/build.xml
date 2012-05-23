@@ -94,7 +94,7 @@
     	<jar basedir="${feeder-pu}" jarfile="${feeder-jar}" />
     	<copy file="${processor-jar}" todir="${dist.dir}" verbose="true"/>
     	<copy file="${feeder-jar}" todir="${dist.dir}" verbose="true"/>
-    	<copy file="${deploy.dir}/src/org/openspaces/example/data/deploy/application.xml" todir="${dist.dir}" verbose="true"/>
+    	<copy file="${basedir}/application.xml" todir="${dist.dir}" verbose="true"/>
     	<zip destfile="${dist.zip}" basedir="${dist.dir}"/>
     </target>
 	
