@@ -15,7 +15,6 @@
     <property name="common.dir" location="${basedir}/common"/>
     <property name="feeder.dir" location="${basedir}/feeder"/>
     <property name="processor.dir" location="${basedir}/processor"/>
-    <property name="deploy.dir" location="${basedir}/deploy"/>
 
     <property name="common-src" value="${common.dir}/src"/>
     <property name="common-classes" value="${common.dir}/classes"/>
