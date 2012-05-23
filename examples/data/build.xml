@@ -35,12 +35,10 @@
     <property name="processor-lib" value="${processor-pu}/lib"/>
 	<property name="processor-dist" value="${processor.dir}/dist"/>
 	<property name="processor-jar" value="${processor-dist}/processor.jar"/>
-
-  <property name="deploy-src" value="${deploy.dir}/src"/>
-    <property name="deploy-classes" value="${deploy.dir}/classes"/>
   
   <property name="dist.dir" value="${basedir}/dist"/>
   <property name="dist.zip" value="${basedir}/dist.zip"/>
+  <property name="app-name" value="data-app"/>
   
     <path id="all-libs">
     	<fileset dir="${gshome.dir}/lib">
@@ -100,11 +98,7 @@
     	<zip destfile="${dist.zip}" basedir="${dist.dir}"/>
     </target>
 	
-	<target name="prepare-deploy">
-    <build src="${deploy-src}" classes="${deploy-classes}" additional-classpath=""/>
-	</target>
-	
-	<target name="deploy" depends="dist,prepare-deploy">
+	<target name="deploy" depends="dist">
       
       <java classname="org.openspaces.admin.application.deploy.ApplicationDeployCommand" fork="false">
           <arg value="--timeout"/>
@@ -114,14 +108,17 @@
           <arg value="${dist.zip}"/>
           <classpath>
            <path refid="all-libs"/>
-           <pathelement path="${deploy-classes}"/>
          </classpath>
       </java>
 	</target>
 	
-	<target name="deploy-dir" depends="dist,prepare-deploy">
+	<target name="deploy-dir" depends="dist">
       
-      <java classname="org.openspaces.admin.application.DeployDataApplication" fork="false">
+      <java classname="org.openspaces.admin.application.deploy.ApplicationDeployCommand" fork="false">
+          <arg value="--timeout"/>
+          <arg value="30000"/>
+          <arg value="--deploy-timeout"/>
+          <arg value="60000"/>
           <arg value="${dist.dir}"/>
           <classpath>
            <path refid="all-libs"/>
@@ -129,11 +126,15 @@
       </java>
 	</target>
 	
-	<target name="undeploy" depends="prepare-deploy">
-      <java classname="org.openspaces.example.data.deploy.UndeployDataApplication" fork="false">
+	<target name="undeploy" >
+      <java classname="org.openspaces.admin.application.deploy.ApplicationUndeployCommand" fork="false">
+          <arg value="--timeout"/>
+          <arg value="30000"/>
+          <arg value="--undeploy-timeout"/>
+          <arg value="60000"/>
+          <arg value="${app-name}"/>
           <classpath>
            <path refid="all-libs"/>
-           <pathelement path="${deploy-classes}"/>
          </classpath>
       </java>
 	</target>
