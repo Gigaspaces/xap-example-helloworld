@@ -100,9 +100,9 @@
 	<target name="deploy" depends="dist">
       
       <java classname="org.openspaces.admin.application.deploy.ApplicationDeployCommand" fork="false">
-          <arg value="--timeout"/>
+          <arg value="-timeout"/>
           <arg value="30000"/>
-          <arg value="--deploy-timeout"/>
+          <arg value="-deploy-timeout"/>
           <arg value="60000"/>
           <arg value="${dist.zip}"/>
           <classpath>
@@ -114,9 +114,9 @@
 	<target name="deploy-dir" depends="dist">
       
       <java classname="org.openspaces.admin.application.deploy.ApplicationDeployCommand" fork="false">
-          <arg value="--timeout"/>
+          <arg value="-timeout"/>
           <arg value="30000"/>
-          <arg value="--deploy-timeout"/>
+          <arg value="-deploy-timeout"/>
           <arg value="60000"/>
           <arg value="${dist.dir}"/>
           <classpath>
