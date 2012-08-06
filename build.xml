@@ -33,7 +33,6 @@
 	<target name="build_examples" description="build all examples">
 		<prepare-example example.folder="${examples.dir}/data" target.name="dist"/>
 		<prepare-example example.folder="${examples.dir}/helloworld" target.name="dist"/>
-		<prepare-example example.folder="${examples.dir}/tutorials/javaspaces/order-management" target.name="compile"/>
 		<prepare-example example.folder="${examples.dir}/tutorials/extreme-application-platform/openspaces-oms" target.name="compile"/>
 		<!-- Note: In Benchmark example only classes folder should be created. DO NOT COMPILE!!! -->
 		<delete dir="${example.dir}/../tools/benchmark/classes" />
@@ -51,7 +50,7 @@
 	<target name="package" description="create examples.zip and examples-1.4.zip under releases folder">
 		<property name="tmp.dir" value="tmp/examples"/>
 		<zip destfile="${examples.release.dir}/examples.zip" >
-    		<zipfileset dir="${examples.dir}" includes="**/*" excludes="**/*1.4/**, **/datagrid/**, **/javaspaces/**, **/parallel-processing/**" prefix="examples" filemode="775"/>
+    		<zipfileset dir="${examples.dir}" includes="**/*"  prefix="examples" filemode="775"/>
     	</zip>
 			
 		<delete dir="${tmp.dir}" />

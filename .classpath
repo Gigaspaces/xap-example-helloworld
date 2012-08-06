@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="examples/tutorials/javaspaces/order-management/src"/>
 	<classpathentry kind="src" path="examples/helloworld/feeder/src"/>
+	<classpathentry kind="src" path="examples/web/session/src"/>
+	<classpathentry kind="src" path="examples/web/space-access/src"/>
 	<classpathentry kind="src" path="examples/helloworld/common/src"/>
 	<classpathentry kind="src" path="examples/helloworld/processor/src"/>
 	<classpathentry kind="src" path="examples/data/processor/src"/>
 	<classpathentry kind="src" path="examples/data/feeder/src"/>
 	<classpathentry kind="src" path="examples/data/common/src"/>
-	<classpathentry kind="src" path="examples/tutorials/datagrid/topologies/src"/>
-	<classpathentry kind="src" path="examples/tutorials/parallel-processing/pp-order-management/validator/src"/>
 	<classpathentry kind="src" path="examples/tutorials/extreme-application-platform/openspaces-oms/common/src"/>
 	<classpathentry kind="src" path="examples/tutorials/extreme-application-platform/openspaces-oms/runtime/src"/>
-	<classpathentry kind="src" path="examples/tutorials/parallel-processing/pp-order-management/client/src"/>
 	<classpathentry kind="src" path="examples/tutorials/extreme-application-platform/openspaces-oms/feeder/src"/>
-	<classpathentry kind="src" path="examples/tutorials/parallel-processing/pp-order-management/common/src"/>
 	<classpathentry kind="src" path="examples/tutorials/extreme-application-platform/openspaces-oms/stats/src"/>
-	<classpathentry kind="src" path="examples/tutorials/parallel-processing/pp-order-management/processor/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gigaspaces"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/openspaces"/>
