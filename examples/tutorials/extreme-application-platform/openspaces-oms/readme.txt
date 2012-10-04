@@ -14,7 +14,7 @@ deployment and scaling by using Spring capabilities and configuration.
  Tutorial
 ------------
 This example is described in details in the following wiki tutorial page:
-http://www.gigaspaces.com/wiki/display/XAP9/XAP+Order+Management+Tutorial
+http://www.gigaspaces.com/wiki/display/XAP91/XAP+Order+Management+Tutorial
 
 STRUCTURE
 ----------
