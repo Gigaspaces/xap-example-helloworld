@@ -10,13 +10,12 @@
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/commons-logging.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/org.springframework.context-3.1.1.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/com.springsource.org.aopalliance-1.0.0.jar"/>
-	<classpathentry exported="true" kind="var" path="GS_HOME/lib/optional/spring/com.springsource.javax.annotation-1.0.0.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/org.springframework.context.support-3.1.1.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/org.springframework.beans-3.1.1.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/org.springframework.aspects-3.1.1.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/optional/spring/org.springframework.jms-3.1.1.RELEASE.jar"/>
 	<classpathentry exported="true" kind="var" path="GS_HOME/lib/required/gs-runtime.jar"/>
-	<classpathentry exported="true" kind="var" path="GS_HOME/lib/platform/jetty/servlet-api-2.5.jar"/>
+	<classpathentry exported="true" kind="var" path="GS_HOME/lib/platform/jetty/servlet-api-3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
