@@ -16,6 +16,7 @@
 package org.openspaces.example.helloworld.common;
 
 import com.gigaspaces.annotation.pojo.SpaceRouting; 
+import com.gigaspaces.annotation.pojo.SpaceId;
 
 /**
  * A simple object used to work with the Space. 
@@ -45,6 +46,7 @@ public class Message  {
      * We will use this attribute to route the message objects when 
      * they are written to the space, defined in the Message.gs.xml file.
      */
+	@SpaceId
 	@SpaceRouting 
     public Integer getId() {
         return id;
