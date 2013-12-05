@@ -49,7 +49,7 @@ md "%COMMON_DIST_DIR%"
 cd "%COMMON_SRC_DIR%"
 %JAVACCMD% -classpath %JARS% -d "%COMMON_CLASSES_DIR%" *.java
 cd "%COMMON_CLASSES_DIR%"
-%JAVA_HOME%\bin\jar cvf "%COMMON_DIST_JAR%" *.*
+%JAVA_HOME%\bin\jar cvf "%COMMON_DIST_JAR%" *
 cd "%BIN_DIR%"
 
 @echo.
