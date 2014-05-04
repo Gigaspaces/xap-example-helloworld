@@ -92,23 +92,24 @@ DEPLOYMENT
 ----------
 
 To deploy the processing units onto the Service Grid:
-1. Start a GSM and *two* GSCs.
+0. Unzip advanced_scripts.zip file located in <gs home dir>\bin directory
+1. Start a GSM (GSM.bat/.sh) and *two* GSCs (GSC.bat/sh)
 >> Deploying the Runtime Processing Unit
 2. Start the GigaSpaces Management Center by executing <gs home dir>\gs-ui.bat (.sh)
 3. From the 'Launch' menu, select 'SBA Application - Processing Unit...'.
 4. In the 'Processing Unit' drop-down list select 'oms-runtime'.
 5. In the 'Cluster schema' drop-down list select 'partitioned'.
-7. In the 'Number of Instances' field, type '2' to create two processing units.
-8. In the 'Backups' field, type '1' for one backup per instance.
-10. Click deploy to deploy the runtime processing units. 
-11. Wait until the Runtime Processing Units finish loading.
+6. In the 'Number of Instances' field, type '2' to create two processing units.
+7. In the 'Backups' field, type '1' for one backup per instance.
+8. Click deploy to deploy the runtime processing units. 
+9. Wait until the Runtime Processing Units finish loading.
 >> Deploying the other modules:
-12. Repeat steps 3,4,7 to deploy the Feeder Module. In step 6 select 'oms-feeder' as the deployment name.
-13. Click deploy to deploy the Feeder Module. 
-14. Repeat steps 3,4,7 to deploy the Stats Module. In step 6 select 'oms-stats' as the deployment name.
-15. Click deploy to deploy the Stats Module. 
+10. Repeat steps 3,4,6 to deploy the Feeder Module. In step 4 select 'oms-feeder' as the deployment name.
+11. Click deploy to deploy the Feeder Module. 
+12. Repeat steps 3,4,6 to deploy the Stats Module. In step 4 select 'oms-stats' as the deployment name.
+13. Click deploy to deploy the Stats Module. 
 >> Optional: viewing deployment
-12. In the GS-UI, click the 'Deployed Processing Units' tab right click on 'oms-stats [1]' tree node
+10. In the GS-UI, click the 'Deployed Processing Units' tab right click on 'oms-stats [1]' tree node
  and select "Show details of oms-stats [1]..." popup menu item, in opened dialog you will see graph with three monitors
 counting the order events written, processed, and rejected due to missing account. 
 
