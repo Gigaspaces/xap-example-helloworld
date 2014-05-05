@@ -5,6 +5,6 @@
 *********************************************************************************************************************
 * FOR COMPLETE DOCUMENTATION OF THIS EXAMPLE PLEASE REFER TO THE StartHere.html FILE UNDER                          * 
 * <GIGASPACES ROOT>/examples/web or online at                                                                       *
-* http://www.gigaspaces.com/wiki/display/XAP100/Step+1+-+Deploying+Your+Web+Application+to+the+GigaSpaces+Environment *
+* http://docs.gigaspaces.com/xap100/step-1---deploying-your-web-application-to-the-gigaspaces-environment.html      *
 *********************************************************************************************************************
 
