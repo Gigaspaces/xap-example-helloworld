@@ -74,7 +74,7 @@ public class AccessSpaceServlet extends HttpServlet {
         if (isStringNotEmpty(dataName) && isStringNotEmpty(dataValue)) {            
             gigaSpace.write(new UserData(dataName, dataValue, userId), Lease.FOREVER, 30000, UpdateModifiers.UPDATE_OR_WRITE);
         }            
-        UserData[] spaceEntries = gigaSpace.readMultiple(new UserData(), Integer.MAX_VALUE);
+        UserData[] spaceEntries = gigaSpace.readMultiple(new UserData());
         request.setAttribute("spaceEntries", spaceEntries); 
         request.getRequestDispatcher("SpaceContents.jsp").forward(request, response);
 	}
