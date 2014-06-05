@@ -30,7 +30,7 @@
 
     <!-- A bean representing a space (an IJSpace implementation).
          Note, we perform a lookup on the space since we are working against a remote space. -->
-    <os-core:space id="space" url="jini://*/*/spaceOMS"/>
+    <os-core:space-proxy id="space" name="spaceOMS"/>
 
     <!-- OpenSpaces simplified space API built on top of IJSpace/JavaSpace. -->
     <os-core:giga-space id="gigaSpace" space="space"/>
