@@ -98,7 +98,7 @@ To deploy the processing units onto the Service Grid:
 2. Start the GigaSpaces Management Center by executing <gs home dir>\gs-ui.bat (.sh)
 3. From the 'Launch' menu, select 'SBA Application - Processing Unit...'.
 4. In the 'Processing Unit' drop-down list select 'oms-runtime'.
-5. In the 'Cluster schema' drop-down list select 'partitioned'.
+5. In the 'Cluster schema' drop-down list select 'partitioned-sync2backup'.
 6. In the 'Number of Instances' field, type '2' to create two processing units.
 7. In the 'Backups' field, type '1' for one backup per instance.
 8. Click deploy to deploy the runtime processing units. 
