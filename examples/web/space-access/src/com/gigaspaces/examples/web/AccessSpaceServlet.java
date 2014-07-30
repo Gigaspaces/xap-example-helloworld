@@ -13,6 +13,7 @@ import net.jini.core.lease.Lease;
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
 import org.openspaces.core.space.UrlSpaceConfigurer;
+import org.openspaces.core.space.SpaceProxyConfigurer;
 
 import com.j_spaces.core.IJSpace;
 import com.j_spaces.core.client.UpdateModifiers;
@@ -45,8 +46,8 @@ public class AccessSpaceServlet extends HttpServlet {
 	 * name "mySpace" before this code is called  
 	 */
 	protected void initGigaSpaces() {		 
-		IJSpace space = new UrlSpaceConfigurer("jini://*/*/mySpace").lookupTimeout(20000).space(); 
-		gigaSpace = new GigaSpaceConfigurer(space).gigaSpace();		
+		IJSpace space = new SpaceProxyConfigurer("mySpace").lookupTimeout(20000).space();
+		gigaSpace = new GigaSpaceConfigurer(space).gigaSpace();
 		
 		/*
 		 * you can uncomment the below line and comment the two above if the application is deployed to the 
