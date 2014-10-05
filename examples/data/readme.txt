@@ -63,9 +63,9 @@ Some ways to play with the examples can be:
 1. Start another GSC and relocate (click and drag on GS-UI) the feeder to the other GSC. This will
 simplify the output since on the GSC that used to run both a processor and a feeder, you will only
 have the processor now. And on the new GSC, you will see the feeder.
-2. Kill one of the GSC that runs the Processor processing unit. Thanks to the SLA, each GSC will run
-a primary partition, and a backup partition (of the other primary partition). This means that the 
-feeder should keep on running, and the active GSC should have its backup partition space turn into
+2. Kill one of the GSC that runs the Processor processing unit. Thanks to the SLA, each partition (primary and backup)
+of an instance will run on a different GSC. This means that the feeder should keep on running,
+and the active GSC should have its backup partition space turn into
 a primary one. While this is happening, the two other instances of the processor PU will get relocated
 to the GSC that is running the Feeder PU.
 
