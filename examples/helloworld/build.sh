@@ -1,3 +1,5 @@
+#!/bin/bash
+
 JSHOMEDIR=`dirname $0`/../..; export JSHOMEDIR
 . ${JSHOMEDIR}/bin/setenv.sh
 
