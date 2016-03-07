@@ -2,9 +2,9 @@
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/hello-processor"/>
+<listEntry value="/processor"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="hello-processor"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="processor"/>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.openspaces.pu.container.integrated.IntegratedProcessingUnitContainer"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>

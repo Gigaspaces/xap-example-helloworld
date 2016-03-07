@@ -17,10 +17,8 @@ package org.openspaces.example.helloworld.feeder;
 
 import org.openspaces.core.GigaSpace;
 import org.openspaces.core.GigaSpaceConfigurer;
-import org.openspaces.core.space.UrlSpaceConfigurer;
+import org.openspaces.core.space.SpaceProxyConfigurer;
 import org.openspaces.example.helloworld.common.*;
-
-import com.j_spaces.core.IJSpace;
 
 import java.util.logging.Logger;
 
@@ -34,7 +32,8 @@ import java.util.logging.Logger;
  */
 public class Feeder {
     Logger logger = Logger.getLogger(this.getClass().getName());
-    GigaSpace gigaSpace = null;
+    private GigaSpace gigaSpace = null;
+    private SpaceProxyConfigurer spaceProxyConfigurer;
 
     /**
      * This is the main entry point to the Feeder,
@@ -42,7 +41,7 @@ public class Feeder {
      * example:  "jini:/&#42;/&#42;/helloSBA" will connect to a space named "helloSBA",
      * If you do not provide a url, the program will exit with a usage message printed.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         if (args.length == 0) {
             System.err.println("Usage: java Feeder <space URL>");
             System.exit(1);
@@ -53,6 +52,14 @@ public class Feeder {
         feeder.feed(1000);                        // run the feeder (start feeding)
 
         feeder.readResults();                    // read back results
+
+        feeder.close();
+
+        System.exit(0);
+    }
+
+    private void close() throws Exception {
+        spaceProxyConfigurer.close();
     }
 
     /**
@@ -62,9 +69,10 @@ public class Feeder {
      */
     public Feeder(String url) {
         // connect to the space using its URL
-        IJSpace space = new UrlSpaceConfigurer(url).space();
+        spaceProxyConfigurer = new SpaceProxyConfigurer(url);
         // use gigaspace wrapper to for simpler API
-        this.gigaSpace = new GigaSpaceConfigurer(space).gigaSpace();
+        this.gigaSpace = new GigaSpaceConfigurer(spaceProxyConfigurer.create()).gigaSpace();
+
     }
 
     /**
@@ -72,8 +80,9 @@ public class Feeder {
      *
      * @param numberOfMessages : number of messages to feed
      */
-    public void feed(int numberOfMessages) {
+    public void feed(int numberOfMessages) throws InterruptedException {
         for (int counter = 0; counter < numberOfMessages; counter++) {
+
             Message msg = new Message(counter, "Hello ");
             gigaSpace.write(msg);
         }
@@ -96,6 +105,6 @@ public class Feeder {
 
         int numInSpace = gigaSpace.count(template);
         logger.info("There are " + numInSpace + " Message objects in the space now.");
-	}
+    }
 
 }
