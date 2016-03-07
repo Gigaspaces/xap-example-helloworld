@@ -11,6 +11,15 @@
 
 <project name="Examples" default="all" basedir=".">
 
+    <condition property="mvn.executable" value="mvn.bat">
+        <os family="windows" />
+    </condition>
+
+    <condition property="mvn.executable" value="mvn">
+        <os family="unix" />
+    </condition>
+
+    <property name="maven.repo.local" value="${user.home}/.m2/repository" />
     <property name="examples.root.dir" value="${basedir}" />
     <property name="gigaspaces.root.dir" value="${examples.root.dir}/../gigaspaces" />
     <property name="openspaces.root.dir" value="${examples.root.dir}/../openspaces" />
@@ -32,7 +41,7 @@
     <target name="build_examples" description="build all examples">
         <prepare-example example.folder="${examples.dir}/data" target.name="dist"/>
         <prepare-example example.folder="${examples.dir}/helloworld" target.name="dist"/>
-        <prepare-example example.folder="${examples.dir}/tutorials/extreme-application-platform/openspaces-oms" target.name="compile"/>
+        <!--<prepare-example example.folder="${examples.dir}/tutorials/extreme-application-platform/openspaces-oms" target.name="compile"/>-->
         <!-- Note: In Benchmark example only classes folder should be created. DO NOT COMPILE!!! -->
         <delete dir="${example.dir}/../tools/benchmark/classes" />
         <ant antfile="build.xml" dir="${example.dir}/../tools/benchmark" target="prepare" />
@@ -57,10 +66,11 @@
 
     <macrodef name="prepare-example" description="build example">
         <attribute name="example.folder"/>
-        <attribute name="target.name" default=""/>
         <sequential>
             <echo message="@{example.folder}"/>
-            <ant antfile="build.xml" dir="@{example.folder}" target="@{target.name}"/>
+            <exec executable="${env.M2_HOME}\bin\${mvn.executable}" dir="@{example.folder}" failonerror="true">
+                <arg line="clean package -Dmaven.repo.local=${maven.repo.local}"/>
+            </exec>
         </sequential>
     </macrodef>
 
