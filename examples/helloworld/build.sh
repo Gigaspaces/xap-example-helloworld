@@ -26,7 +26,7 @@ elif [ $1 = "run-feeder" ]; then
   (cd $DIR_NAME;
   ${M2_HOME}/bin/mvn install;
   cd feeder;
-  ${M2_HOME}/bin/mvn exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace"; )
+  ${M2_HOME}/bin/mvn exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace" -Dexec.classpathScope=compile; )
 
 elif [ $1 = "intellij" ]; then
   cp -r $DIR_NAME/runConfigurations $DIR_NAME/.idea
