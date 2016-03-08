@@ -29,7 +29,7 @@ if "%1" == "clean" (
 					cd %DIR_NAME%
                     call "%M2_HOME%\bin\mvn.bat" install
 					cd feeder
-					call "%M2_HOME%\bin\mvn.bat" exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace"
+					call "%M2_HOME%\bin\mvn.bat" exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace" -Dexec.classpathScope=compile
 					cd %CD%
 				) else (
 					if "%1" == "intellij" (

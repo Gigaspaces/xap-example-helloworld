@@ -58,7 +58,7 @@
     <target name="package" description="create examples.zip and examples-1.4.zip under releases folder">
         <property name="tmp.dir" value="tmp/examples"/>
         <zip destfile="${examples.release.dir}/examples.zip" >
-            <zipfileset dir="${examples.dir}" includes="**/*"  prefix="examples" filemode="775"/>
+            <zipfileset dir="${examples.dir}" includes="**/*"  excludes="**/tutorials/" prefix="examples" filemode="775"/>
         </zip>
 
         <delete dir="${tmp.dir}" />
@@ -69,7 +69,10 @@
         <sequential>
             <echo message="@{example.folder}"/>
             <exec executable="${env.M2_HOME}\bin\${mvn.executable}" dir="@{example.folder}" failonerror="true">
-                <arg line="clean package -Dmaven.repo.local=${maven.repo.local}"/>
+                <arg line="clean compile -Dmaven.repo.local=${maven.repo.local}"/>
+            </exec>
+            <exec executable="${env.M2_HOME}\bin\${mvn.executable}" dir="@{example.folder}" failonerror="true">
+                <arg line="clean -Dmaven.repo.local=${maven.repo.local}"/>
             </exec>
         </sequential>
     </macrodef>
