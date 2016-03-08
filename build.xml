@@ -39,8 +39,8 @@
     </target>
 
     <target name="build_examples" description="build all examples">
-        <prepare-example example.folder="${examples.dir}/data" target.name="dist"/>
-        <prepare-example example.folder="${examples.dir}/helloworld" target.name="dist"/>
+        <prepare-example example.folder="${examples.dir}/data"/>
+        <prepare-example example.folder="${examples.dir}/helloworld"/>
         <!--<prepare-example example.folder="${examples.dir}/tutorials/extreme-application-platform/openspaces-oms" target.name="compile"/>-->
         <!-- Note: In Benchmark example only classes folder should be created. DO NOT COMPILE!!! -->
         <delete dir="${example.dir}/../tools/benchmark/classes" />
