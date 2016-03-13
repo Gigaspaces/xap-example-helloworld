@@ -4,7 +4,7 @@ DIR_NAME=$(dirname ${BASH_SOURCE[0]})
 . $DIR_NAME/../../bin/setenv.sh
 
 if [ "${M2_HOME}" = "" ] ; then
-    M2_HOME="${XAP_HOME}/tools/maven/apache-maven-3.0.2"; export M2_HOME #needed to upgraded to 3.2.5
+    M2_HOME="${XAP_HOME}/tools/maven/apache-maven-3.2.5"; export M2_HOME
 fi
 
 if [ $1 = "clean" ]; then
