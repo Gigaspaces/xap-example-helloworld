@@ -7,17 +7,17 @@ if not defined M2_HOME set M2_HOME=%~dp0..\..\tools\maven\apache-maven-3.2.5
 
 if "%1" == "clean" (
   cd %DIR_NAME%
-  call "%M2_HOME%\bin\mvn.bat" clean
+  call "%M2_HOME%\bin\mvn" clean
   cd %CD%
 ) else (
 	if "%1" == "compile" (
 	    cd %DIR_NAME%
-		call "%M2_HOME%\bin\mvn.bat" compile
+		call "%M2_HOME%\bin\mvn" compile
 		cd %CD%
 	) else (
 		if "%1" == "package" (
 		    cd %DIR_NAME%		
-			call "%M2_HOME%\bin\mvn.bat" package
+			call "%M2_HOME%\bin\mvn" package
 			cd %CD%
 		) else (
 			if "%1" == "deploy-processor" (
@@ -27,9 +27,9 @@ if "%1" == "clean" (
 			) else (
 				if "%1" == "run-feeder" (
 					cd %DIR_NAME%
-                    call "%M2_HOME%\bin\mvn.bat" install
+                    call "%M2_HOME%\bin\mvn" install
 					cd feeder
-					call "%M2_HOME%\bin\mvn.bat" exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace" -Dexec.classpathScope=compile
+					call "%M2_HOME%\bin\mvn" exec:java -Dexec.mainClass=org.openspaces.example.helloworld.feeder.Feeder -Dexec.args="processorSpace" -Dexec.classpathScope=compile
 					cd %CD%
 				) else (
 					if "%1" == "intellij" (
