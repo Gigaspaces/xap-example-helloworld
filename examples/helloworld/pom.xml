@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openspaces.example</groupId>
     <artifactId>xap-example-helloworld</artifactId>
-    <version>11.0.0-14800-RELEASE</version>
+    <version>11.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <repositories>
         <repository>
