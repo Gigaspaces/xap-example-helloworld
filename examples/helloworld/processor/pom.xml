@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.openspaces.example</groupId>
             <artifactId>common</artifactId>
-            <version>12.0.0-SNAPSHOT</version>
+            <version>${gsVersion}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
