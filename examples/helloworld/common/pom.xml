@@ -4,12 +4,12 @@
     <groupId>org.openspaces.example</groupId>
     <artifactId>common</artifactId>
     <packaging>jar</packaging>
-    <version>11.0.1-SNAPSHOT</version>
+    <version>11.0.0-14812-RELEASE</version>
     <name>common</name>
     <parent>
         <groupId>org.openspaces.example</groupId>
         <artifactId>xap-example-helloworld</artifactId>
-        <version>11.0.1-SNAPSHOT</version>
+        <version>11.0.0-14812-RELEASE</version>
     </parent>
     <build>
         <finalName>helloworld-common</finalName>
