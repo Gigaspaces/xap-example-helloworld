@@ -4,12 +4,12 @@
     <groupId>org.openspaces.example</groupId>
     <artifactId>processor</artifactId>
     <packaging>jar</packaging>
-    <version>11.0.1-SNAPSHOT</version>
+    <version>11.0.0-14814-RELEASE</version>
     <name>processor</name>
     <parent>
         <groupId>org.openspaces.example</groupId>
         <artifactId>xap-example-helloworld</artifactId>
-        <version>11.0.1-SNAPSHOT</version>
+        <version>11.0.0-14814-RELEASE</version>
     </parent>
     <properties>
         <gsType>PU</gsType>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.openspaces.example</groupId>
             <artifactId>common</artifactId>
-            <version>11.0.1-SNAPSHOT</version>
+            <version>11.0.0-14814-RELEASE</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
